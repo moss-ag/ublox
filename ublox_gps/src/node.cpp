@@ -406,6 +406,9 @@ void UbloxNode::getRosParams() {
   this->declare_parameter("nmea.gnssToFilter.qzss", false);
   this->declare_parameter("nmea.gnssToFilter.glonass", false);
   this->declare_parameter("nmea.gnssToFilter.beidou", false);
+  this->declare_parameter("nmea.version", 65);
+  this->declare_parameter("nmea.num_sv", 30);
+  this->declare_parameter("nmea.sv_numbering", 1);
 
   // Publish parameters
   this->declare_parameter("publish.all", false);
