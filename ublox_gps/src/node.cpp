@@ -406,9 +406,12 @@ void UbloxNode::getRosParams() {
   this->declare_parameter("nmea.gnssToFilter.qzss", false);
   this->declare_parameter("nmea.gnssToFilter.glonass", false);
   this->declare_parameter("nmea.gnssToFilter.beidou", false);
-  this->declare_parameter("nmea.version", 65);
-  this->declare_parameter("nmea.num_sv", 30);
-  this->declare_parameter("nmea.sv_numbering", 1);
+  this->declare_parameter("nmea.version", ublox_msgs::msg::CfgNMEA::NMEA_VERSION_4_1);
+  this->declare_parameter("nmea.num_sv", ublox_msgs::msg::CfgNMEA::NUM_SV_UNLIMITED);
+  this->declare_parameter("nmea.sv_numbering", ublox_msgs::msg::CfgNMEA::SV_NUMBERING_STRICT);
+  this->declare_parameter("nmea.main_talker_id", ublox_msgs::msg::CfgNMEA::MAIN_TALKER_ID_NOT_OVERRIDDEN);
+  this->declare_parameter("nmea.gsv_talker_id", ublox_msgs::msg::CfgNMEA::GSV_TALKER_ID_GNSS_SPECIFIC);
+  this->declare_parameter("nmea.bds_talker_id", std::vector<uint8_t>{0, 0});
 
   // Publish parameters
   this->declare_parameter("publish.all", false);
